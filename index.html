@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CONTACT FORM</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #00000000;
+      padding: 20px;
+    }
+    form {
+      background: rgb(43, 8, 38);
+      padding: 20px;
+      border-radius: 8px;
+      width: 300px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.932);
+    }
+    input, button {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 16px;
+    }
+    #output {
+      margin-top: 20px;
+      background: #000000;
+      padding: 15px;
+      border-radius: 8px;
+      width: 300px;
+      margin: 20px auto;
+      box-shadow: 0 0 10px rgba(19, 19, 19, 0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <form id="detailsForm">
+    <h2>CONTACT FORM</h2>
+    <input type="text" id="name" placeholder="Your Name" required />
+    <input type="email" id="email" placeholder="Your Email" required />
+    <input type="tel" id="contact" placeholder="Your Contact Number" required />
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="output" style="display:none;">
+    <h3>Saved Details:</h3>
+    <p><strong>Name:</strong> <span id="displayName"></span></p>
+    <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+    <p><strong>Contact:</strong> <span id="displayContact"></span></p>
+  </div>
+
+  <script>
+    const form = document.getElementById('detailsForm');
+    const output = document.getElementById('output');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const contact = document.getElementById('contact').value;
+
+      document.getElementById('displayName').textContent = name;
+      document.getElementById('displayEmail').textContent = email;
+      document.getElementById('displayContact').textContent = contact;
+
+      output.style.display = 'block';
+
+      // Optional: Clear form
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
